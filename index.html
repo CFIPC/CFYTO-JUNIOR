@@ -26,7 +26,8 @@
         .border-gold { border-color: var(--gold); }
         
         .hero-gradient {
-            background: linear-gradient(rgba(5, 11, 24, 0.7), rgba(5, 11, 24, 0.4));
+            /* Lightened the overlay slightly to let the image colors shine through */
+            background: linear-gradient(rgba(5, 11, 24, 0.4), rgba(5, 11, 24, 0.2));
         }
         
         .gold-button {
@@ -89,8 +90,9 @@
     <!-- Hero Section -->
     <header class="relative h-screen flex items-center justify-start overflow-hidden">
         <div class="absolute inset-0 z-0">
+            <!-- Animation and scaling classes removed to keep the image stable and in color -->
             <img src="first.png" 
-                 class="w-full h-full object-cover scale-105 animate-[pulse_10s_infinite_alternate]" 
+                 class="w-full h-full object-cover" 
                  alt="César Franck Young Talents & Orchestra Junior">
             <div class="absolute inset-0 hero-gradient"></div>
         </div>
@@ -378,6 +380,7 @@
     <!-- Final CTA (Claim Your Stage) -->
     <section class="py-32 bg-navy text-white relative overflow-hidden">
         <div class="absolute inset-0 opacity-10">
+            <!-- Animation removed here as well for consistency -->
             <img src="first.png" class="w-full h-full object-cover">
         </div>
         <div class="max-w-4xl mx-auto text-center relative z-10 px-8">
