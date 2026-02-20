@@ -26,7 +26,6 @@
         .border-gold { border-color: var(--gold); }
         
         .hero-gradient {
-            /* Lightened the overlay slightly to let the image colors shine through */
             background: linear-gradient(rgba(5, 11, 24, 0.4), rgba(5, 11, 24, 0.2));
         }
         
@@ -67,6 +66,11 @@
         .read-more-content.show {
             display: block;
         }
+
+        .lang-btn.active {
+            color: var(--gold);
+            font-weight: 700;
+        }
     </style>
 </head>
 <body class="antialiased">
@@ -76,23 +80,26 @@
         <div class="flex items-center space-x-3">
             <div class="border-l-2 border-gold pl-3">
                 <p class="text-[10px] tracking-[0.3em] font-bold uppercase text-navy/60 leading-tight">César Franck</p>
-                <p class="text-sm font-serif font-bold tracking-tight text-navy">Young Talents & Orchestra</p>
+                <p class="text-sm font-serif font-bold tracking-tight text-navy" data-key="nav-title">Young Talents & Orchestra</p>
             </div>
         </div>
         <div class="hidden md:flex items-center space-x-10 text-[11px] font-bold uppercase tracking-[0.2em]">
-            <a href="#philosophy" class="text-navy/80 hover:text-gold transition-colors">Philosophy</a>
-            <a href="#concert" class="text-navy/80 hover:text-gold transition-colors">The Stage</a>
-            <a href="#investment" class="text-navy/80 hover:text-gold transition-colors">Packages</a>
-            <a href="https://forms.fillout.com/t/oCCJ1eQeVzus" target="_blank" class="gold-button px-6 py-2.5 rounded-none text-white">Apply</a>
+            <a href="#philosophy" class="text-navy/80 hover:text-gold transition-colors" data-key="nav-philosophy">Philosophy</a>
+            <a href="#concert" class="text-navy/80 hover:text-gold transition-colors" data-key="nav-stage">The Stage</a>
+            <a href="#investment" class="text-navy/80 hover:text-gold transition-colors" data-key="nav-packages">Packages</a>
+            <div class="flex space-x-2 border-l border-navy/10 pl-10 items-center">
+                <button onclick="setLang('en')" class="lang-btn active transition-colors hover:text-gold" id="btn-en">EN</button>
+                <span class="text-navy/20">|</span>
+                <button onclick="setLang('fr')" class="lang-btn transition-colors hover:text-gold" id="btn-fr">FR</button>
+            </div>
+            <a href="https://forms.fillout.com/t/oCCJ1eQeVzus" target="_blank" class="gold-button px-6 py-2.5 rounded-none text-white" data-key="nav-apply">Apply</a>
         </div>
     </nav>
 
     <!-- Hero Section -->
     <header class="relative h-screen flex items-center justify-start overflow-hidden">
         <div class="absolute inset-0 z-0">
-            <img src="first.png" 
-                 class="w-full h-full object-cover" 
-                 alt="César Franck Young Talents & Orchestra Junior">
+            <img src="first.png" class="w-full h-full object-cover" alt="CFYTO Junior">
             <div class="absolute inset-0 hero-gradient"></div>
         </div>
         
@@ -100,32 +107,32 @@
             <div class="max-w-3xl">
                 <span class="inline-block py-1 px-3 border border-gold text-gold text-[10px] uppercase tracking-[0.4em] mb-6">Brussels • Kraainem • Antwerp</span>
                 <h1 class="text-6xl md:text-9xl text-white font-serif leading-[0.9] mb-8">
-                    CFYTO <br><span class="italic text-gold">Junior</span>
+                    CFYTO <br><span class="italic text-gold" data-key="hero-junior">Junior</span>
                 </h1>
-                <p class="text-lg md:text-xl text-white/80 font-light mb-12 max-w-xl leading-relaxed">
+                <p class="text-lg md:text-xl text-white/80 font-light mb-12 max-w-xl leading-relaxed" data-key="hero-sub">
                     Nurturing the musical soul of the next generation. A bridge between the practice room and the world's great stages.
                 </p>
                 <div class="flex flex-wrap gap-6">
-                    <a href="https://forms.fillout.com/t/oCCJ1eQeVzus" target="_blank" class="gold-button px-10 py-5 text-xs font-bold uppercase">Begin the Journey</a>
-                    <a href="#faculty" class="px-10 py-5 border border-white/30 text-white text-xs font-bold uppercase hover:bg-white hover:text-navy transition-all">Meet the Professors</a>
+                    <a href="https://forms.fillout.com/t/oCCJ1eQeVzus" target="_blank" class="gold-button px-10 py-5 text-xs font-bold uppercase" data-key="hero-btn-apply">Begin the Journey</a>
+                    <a href="#faculty" class="px-10 py-5 border border-white/30 text-white text-xs font-bold uppercase hover:bg-white hover:text-navy transition-all" data-key="hero-btn-faculty">Meet the Professors</a>
                 </div>
             </div>
         </div>
     </header>
 
-    <!-- The Art of Piano Playing Section (Philosophy) -->
+    <!-- Philosophy Section -->
     <section id="philosophy" class="py-32 px-8 md:px-24 bg-white">
         <div class="max-w-6xl mx-auto">
             <div class="grid lg:grid-cols-12 gap-16 items-center">
                 <div class="lg:col-span-7">
-                    <span class="text-gold font-bold uppercase tracking-[0.4em] text-[10px] mb-4 block">A Dedicated Vision</span>
-                    <h2 class="text-4xl md:text-6xl font-serif mb-10 leading-tight">The Art of Piano Playing <br>for <span class="italic text-gold">Young Pupils</span></h2>
+                    <span class="text-gold font-bold uppercase tracking-[0.4em] text-[10px] mb-4 block" data-key="phil-tag">A Dedicated Vision</span>
+                    <h2 class="text-4xl md:text-6xl font-serif mb-10 leading-tight" data-key="phil-title">The Art of Piano Playing <br>for <span class="italic text-gold">Young Pupils</span></h2>
                     
-                    <p class="text-xl text-gray-700 mb-8 leading-relaxed font-light">
+                    <p class="text-xl text-gray-700 mb-8 leading-relaxed font-light" data-key="phil-p1">
                         For a young pianist, the first steps into the professional world are the most critical. It is not just about learning notes; it is about discovering a voice. 
                     </p>
                     
-                    <p class="text-gray-500 mb-10 leading-relaxed">
+                    <p class="text-gray-500 mb-10 leading-relaxed" data-key="phil-p2">
                         We believe that the time spent with a master should be a revelation. By focusing our energy into intensive, high-impact sessions, we honor the young student's natural curiosity and agility, ensuring every minute at the keyboard is a step toward artistic independence.
                     </p>
 
@@ -133,15 +140,15 @@
                         <div class="flex items-start">
                             <div class="w-12 h-12 bg-gray-50 flex items-center justify-center text-gold font-serif text-2xl mr-6 flex-shrink-0">1</div>
                             <div>
-                                <h4 class="font-bold text-navy uppercase tracking-widest text-sm mb-2">A Personal Connection</h4>
-                                <p class="text-gray-500 text-sm">Every child is unique. Our 30-minute modules are intense but deeply human, allowing us to connect with the student's specific musical personality and build their confidence from the very first minute.</p>
+                                <h4 class="font-bold text-navy uppercase tracking-widest text-sm mb-2" data-key="phil-h1">A Personal Connection</h4>
+                                <p class="text-gray-500 text-sm" data-key="phil-d1">Every child is unique. Our 30-minute modules are intense but deeply human, allowing us to connect with the student's specific musical personality and build their confidence from the very first minute.</p>
                             </div>
                         </div>
                         <div class="flex items-start">
                             <div class="w-12 h-12 bg-gray-50 flex items-center justify-center text-gold font-serif text-2xl mr-6 flex-shrink-0">2</div>
                             <div>
-                                <h4 class="font-bold text-navy uppercase tracking-widest text-sm mb-2">The Path to the Stage</h4>
-                                <p class="text-gray-500 text-sm">We don't just teach pieces; we prepare performers. Through four iterative touchpoints, we refine not only the technique but the presence and focus required for a professional solo recital.</p>
+                                <h4 class="font-bold text-navy uppercase tracking-widest text-sm mb-2" data-key="phil-h2">The Path to the Stage</h4>
+                                <p class="text-gray-500 text-sm" data-key="phil-d2">We don't just teach pieces; we prepare performers. Through four iterative touchpoints, we refine not only the technique but the presence and focus required for a professional solo recital.</p>
                             </div>
                         </div>
                     </div>
@@ -149,30 +156,30 @@
                 <div class="lg:col-span-5 relative">
                     <img src="vision.png" class="w-full h-[600px] object-cover shadow-2xl rounded-sm" alt="Piano Hands">
                     <div class="absolute -bottom-10 -left-10 bg-navy text-white p-10 hidden md:block border-l-4 border-gold max-w-sm">
-                        <p class="text-xl font-serif italic mb-4 leading-relaxed">"Our mission is to inspire and support young pianists by giving them an international stage to grow and push their limits."</p>
-                        <p class="text-[10px] uppercase tracking-widest text-gold font-bold">The César Franck International Piano Competition</p>
+                        <p class="text-xl font-serif italic mb-4 leading-relaxed" data-key="phil-quote">"Our mission is to inspire and support young pianists by giving them an international stage to grow and push their limits."</p>
+                        <p class="text-[10px] uppercase tracking-widest text-gold font-bold" data-key="phil-quote-tag">The César Franck International Piano Competition</p>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- The Concert (The Stage) -->
+    <!-- The Stage Section -->
     <section id="concert" class="py-24 bg-navy text-white relative overflow-hidden">
         <div class="max-w-6xl mx-auto px-8 grid lg:grid-cols-2 gap-16 items-center">
             <div class="order-2 lg:order-1">
                 <img src="stage.png" class="w-full h-[450px] object-cover opacity-80 rounded-sm" alt="Concert Stage">
             </div>
             <div class="order-1 lg:order-2">
-                <span class="text-gold font-bold uppercase tracking-[0.4em] text-[10px] mb-4 block">The Grand Culmination</span>
-                <h2 class="text-4xl md:text-5xl font-serif mb-6 leading-tight">Solo Concert in <br><span class="italic">Antwerp</span></h2>
-                <p class="text-lg text-gray-300 mb-8 leading-relaxed font-light">
+                <span class="text-gold font-bold uppercase tracking-[0.4em] text-[10px] mb-4 block" data-key="stage-tag">The Grand Culmination</span>
+                <h2 class="text-4xl md:text-5xl font-serif mb-6 leading-tight" data-key="stage-title">Solo Concert in <br><span class="italic">Antwerp</span></h2>
+                <p class="text-lg text-gray-300 mb-8 leading-relaxed font-light" data-key="stage-desc">
                     The true test of a musician is the stage. After your four intensive masterclasses, you will take what you have learned and bring it to life in front of an audience.
                 </p>
                 <div class="bg-white/5 border-l-2 border-gold p-8 backdrop-blur-sm">
-                    <h4 class="text-2xl font-serif italic mb-2 text-gold">Thursday, March 5th, 2026</h4>
-                    <p class="text-sm text-white/70 uppercase tracking-widest font-bold">A Solo Performance in Antwerp</p>
-                    <p class="mt-4 text-sm text-gray-400 leading-relaxed">
+                    <h4 class="text-2xl font-serif italic mb-2 text-gold" data-key="stage-date">Thursday, March 5th, 2026</h4>
+                    <p class="text-sm text-white/70 uppercase tracking-widest font-bold" data-key="stage-perf">A Solo Performance in Antwerp</p>
+                    <p class="mt-4 text-sm text-gray-400 leading-relaxed" data-key="stage-limit">
                         Junior participants from the Solo Project will perform a maximum of 5 minutes, showcasing their refined technique and artistic growth in a professional concert setting.
                     </p>
                 </div>
@@ -180,59 +187,44 @@
         </div>
     </section>
 
-    <!-- Investment & Pricing Section (Packages) -->
+    <!-- Packages Section -->
     <section id="investment" class="py-32 px-8 md:px-24 bg-gray-50">
         <div class="max-w-6xl mx-auto">
             <div class="text-center mb-20">
-                <h2 class="text-5xl font-serif mt-4 italic">Program Packages</h2>
+                <h2 class="text-5xl font-serif mt-4 italic" data-key="pack-title">Program Packages</h2>
             </div>
-
             <div class="grid lg:grid-cols-3 gap-8 mb-20">
-                <!-- Solo Project -->
                 <div class="bg-white border border-gray-100 p-12 floating-card flex flex-col">
-                    <h3 class="text-2xl font-serif mb-4 italic">Solo Project</h3>
-                    <p class="text-gold font-bold text-3xl mb-8">€200 <span class="text-xs text-gray-400 font-sans uppercase tracking-widest">+ Admin Fee</span></p>
-                    <ul class="text-sm text-gray-500 space-y-4 mb-10 flex-grow">
-                        <li class="flex items-center"><span class="text-gold mr-2">✦</span> 4 lessons of 30 minutes</li>
-                        <li class="flex items-center"><span class="text-gold mr-2">✦</span> Solo Concert (Mar 5th, Antwerp)</li>
-                        <li class="flex items-center"><span class="text-gold mr-2">✦</span> Daily Practice Time</li>
-                        <li class="flex items-center"><span class="text-gold mr-2">✦</span> Free admission to all concerts</li>
-                        <li class="flex items-center"><span class="text-gold mr-2">✦</span> Full access to all masterclasses</li>
+                    <h3 class="text-2xl font-serif mb-4 italic" data-key="pack-s-title">Solo Project</h3>
+                    <p class="text-gold font-bold text-3xl mb-8">€200 <span class="text-xs text-gray-400 font-sans uppercase tracking-widest" data-key="pack-admin">+ Admin Fee</span></p>
+                    <ul class="text-sm text-gray-500 space-y-4 mb-10 flex-grow" id="pack-solo-list">
+                        <!-- List populated by JS -->
                     </ul>
-                    <a href="https://forms.fillout.com/t/oCCJ1eQeVzus" target="_blank" class="text-center py-4 border border-navy text-navy text-[10px] font-bold uppercase tracking-widest hover:bg-navy hover:text-white transition-all">Select Solo</a>
+                    <a href="https://forms.fillout.com/t/oCCJ1eQeVzus" target="_blank" class="text-center py-4 border border-navy text-navy text-[10px] font-bold uppercase tracking-widest hover:bg-navy hover:text-white transition-all" data-key="pack-btn-solo">Select Solo</a>
                 </div>
 
-                <!-- Orchestra Project -->
                 <div class="bg-navy text-white p-12 floating-card flex flex-col relative overflow-hidden opacity-90">
-                    <div class="absolute top-0 right-0 bg-red-600 text-white text-[10px] font-bold px-4 py-1 uppercase tracking-widest z-10">FULLY BOOKED</div>
-                    <h3 class="text-2xl font-serif mb-4 italic text-gold">Orchestra Project</h3>
-                    <p class="text-white font-bold text-3xl mb-8 opacity-50">€550 <span class="text-xs text-gray-400 font-sans uppercase tracking-widest">+ Admin Fee</span></p>
-                    <ul class="text-sm text-gray-300 space-y-4 mb-10 flex-grow">
-                        <li class="flex items-center"><span class="text-gold/50 mr-2">✦</span> Enhanced curriculum</li>
-                        <li class="flex items-center"><span class="text-gold/50 mr-2">✦</span> Orchestra collaboration opportunities</li>
-                        <li class="flex items-center"><span class="text-gold/50 mr-2">✦</span> Priority Daily Practice Time</li>
-                        <li class="flex items-center"><span class="text-gold/50 mr-2">✦</span> Professional Networking</li>
+                    <div class="absolute top-0 right-0 bg-red-600 text-white text-[10px] font-bold px-4 py-1 uppercase tracking-widest z-10" data-key="pack-booked">FULLY BOOKED</div>
+                    <h3 class="text-2xl font-serif mb-4 italic text-gold" data-key="pack-o-title">Orchestra Project</h3>
+                    <p class="text-white font-bold text-3xl mb-8 opacity-50">€550 <span class="text-xs text-gray-400 font-sans uppercase tracking-widest" data-key="pack-admin">+ Admin Fee</span></p>
+                    <ul class="text-sm text-gray-300 space-y-4 mb-10 flex-grow" id="pack-orch-list">
+                        <!-- List populated by JS -->
                     </ul>
-                    <button disabled class="text-center py-4 bg-gray-600 text-gray-300 text-[10px] font-bold uppercase tracking-widest cursor-not-allowed">Fully Booked</button>
+                    <button disabled class="text-center py-4 bg-gray-600 text-gray-300 text-[10px] font-bold uppercase tracking-widest cursor-not-allowed" data-key="pack-btn-booked">Fully Booked</button>
                 </div>
 
-                <!-- Passive Participant -->
                 <div class="bg-white border border-gray-100 p-12 floating-card flex flex-col">
-                    <h3 class="text-2xl font-serif mb-4 italic">Passive Participant</h3>
-                    <p class="text-gold font-bold text-3xl mb-8">€50 <span class="text-xs text-gray-400 font-sans uppercase tracking-widest">+ Admin Fee</span></p>
-                    <ul class="text-sm text-gray-500 space-y-4 mb-10 flex-grow">
-                        <li class="flex items-center"><span class="text-gold mr-2">✦</span> Audit all Junior & Senior lessons</li>
-                        <li class="flex items-center"><span class="text-gold mr-2">✦</span> Free admission to all concerts</li>
-                        <li class="flex items-center"><span class="text-gold mr-2">✦</span> Behind-the-scenes access</li>
+                    <h3 class="text-2xl font-serif mb-4 italic" data-key="pack-p-title">Passive Participant</h3>
+                    <p class="text-gold font-bold text-3xl mb-8">€50 <span class="text-xs text-gray-400 font-sans uppercase tracking-widest" data-key="pack-admin">+ Admin Fee</span></p>
+                    <ul class="text-sm text-gray-500 space-y-4 mb-10 flex-grow" id="pack-pass-list">
+                        <!-- List populated by JS -->
                     </ul>
-                    <a href="https://forms.fillout.com/t/oCCJ1eQeVzus" target="_blank" class="text-center py-4 border border-gray-200 text-gray-400 text-[10px] font-bold uppercase tracking-widest hover:border-navy hover:text-navy transition-all">Select Passive</a>
+                    <a href="https://forms.fillout.com/t/oCCJ1eQeVzus" target="_blank" class="text-center py-4 border border-gray-200 text-gray-400 text-[10px] font-bold uppercase tracking-widest hover:border-navy hover:text-navy transition-all" data-key="pack-btn-pass">Select Passive</a>
                 </div>
             </div>
-
-            <!-- Admin Fee Note -->
             <div class="max-w-3xl mx-auto text-center border-t border-gray-200 pt-12">
-                <p class="text-sm text-gray-500 italic">
-                    * A mandatory <strong>CFIPC Administration fee of €50</strong> applies to all active and passive registrations.
+                <p class="text-sm text-gray-500 italic" data-key="pack-note">
+                    * A mandatory <strong>CFIPC Administration fee of €50</strong> applies to all registrations.
                 </p>
             </div>
         </div>
@@ -243,58 +235,48 @@
         <div class="max-w-6xl mx-auto flex flex-col md:flex-row gap-20">
             <div class="md:w-1/3">
                 <div class="sticky top-32">
-                    <span class="text-gold font-bold uppercase tracking-[0.4em] text-[10px]">Your Mentors</span>
-                    <h2 class="text-5xl font-serif mt-4 leading-tight">Masters of <br><span class="italic text-gold">Pedagogy</span></h2>
-                    <p class="text-gray-500 mt-8 text-sm leading-relaxed">
+                    <span class="text-gold font-bold uppercase tracking-[0.4em] text-[10px]" data-key="mentors-tag">Your Mentors</span>
+                    <h2 class="text-5xl font-serif mt-4 leading-tight" data-key="mentors-title">Masters of <br><span class="italic text-gold">Pedagogy</span></h2>
+                    <p class="text-gray-500 mt-8 text-sm leading-relaxed" data-key="mentors-desc">
                         Philippe Raskin and Cristiana Dragos bring a shared vision to the Junior program: that excellence is achievable at any age when guided with patience, passion, and precision.
                     </p>
                 </div>
             </div>
             
             <div class="md:w-2/3 space-y-32">
-                <!-- Philippe Raskin -->
                 <div class="grid md:grid-cols-2 gap-10 items-start">
                     <div class="overflow-hidden group">
-                        <img src="phil.png" 
-                             class="w-full transition-all duration-1000 shadow-xl" alt="Philippe Raskin">
+                        <img src="phil.png" class="w-full shadow-xl" alt="Philippe Raskin">
                     </div>
                     <div>
                         <h3 class="text-3xl font-serif mb-2 text-navy">Philippe Raskin</h3>
-                        <p class="text-gold uppercase tracking-widest text-[10px] font-bold mb-6">Artistic Director & Professor</p>
+                        <p class="text-gold uppercase tracking-widest text-[10px] font-bold mb-6" data-key="phil-role">Artistic Director & Professor</p>
                         <div class="text-gray-600 text-sm leading-relaxed">
-                            <p class="mb-4">Born in Brussels, Philippe Raskin is an eclectic pianist whose career spans solo performance, chamber music, and elite pedagogy. He received a diverse musical education at the Royal Conservatory of Brussels and the Queen Elisabeth Music Chapel, further refining his artistry at Madrid’s Escuela Superior de Música Reina Sofía under Dimitri Bashkirov. His performances have been described by La Libre Belgique as a "model of radiant authority," noted for being both generous and meticulously controlled.</p>
-                            
-                            <div id="raskin-extra" class="read-more-content space-y-4">
-                                <p>A laureate of the "Spanish Composers" and J.S. Bach competitions, Philippe has performed in world-renowned venues including the Vienna Musikverein, the Berlin Philharmonie, and the Grand Hall of the Tchaikovsky Conservatory. He frequently collaborates with the Belgian National Orchestra and maintains a vibrant chamber music presence alongside artists such as Clemens Hagen. Dedicated to new music, several composers have dedicated works to him, including Jean-Marie Rens and Serkan Gürkan.</p>
-                                <p>Beyond the stage, Philippe is a distinguished educator and artistic leader. He serves as the Artistic Director of the César Franck International Piano Competition and is a frequent jury member for major international competitions. He currently holds professorships at the Friedrich Gulda Conservatory in Vienna, the Royal Superior Institute of Music and Pedagogy in Namur, and the Talent Music Master Courses in Brescia.</p>
+                            <p class="mb-4" data-key="phil-bio-1">Born in Brussels, Philippe Raskin is an eclectic pianist whose career spans solo performance, chamber music, and elite pedagogy...</p>
+                            <div id="raskin-extra" class="read-more-content space-y-4" data-key="phil-bio-2">
+                                <!-- Populated by JS -->
                             </div>
-                            
                             <button onclick="toggleBio('raskin')" id="raskin-btn" class="mt-4 text-gold font-bold uppercase tracking-widest text-[10px] hover:text-navy transition-colors flex items-center">
-                                Read more <span class="ml-2 text-xs">↓</span>
+                                <span data-key="btn-read-more">Read more</span> <span class="ml-2 text-xs">↓</span>
                             </button>
                         </div>
                     </div>
                 </div>
 
-                <!-- Cristiana Dragos -->
                 <div class="grid md:grid-cols-2 gap-10 items-start">
                     <div class="md:order-2 overflow-hidden group">
-                        <img src="cris.png" 
-                             class="w-full transition-all duration-1000 object-cover shadow-xl" alt="Cristiana Dragos">
+                        <img src="cris.png" class="w-full object-cover shadow-xl" alt="Cristiana Dragos">
                     </div>
                     <div class="md:order-1 md:text-right flex flex-col md:items-end">
                         <h3 class="text-3xl font-serif mb-2 text-navy">Cristiana Dragos</h3>
-                        <p class="text-gold uppercase tracking-widest text-[10px] font-bold mb-6">Professor & Project Manager</p>
+                        <p class="text-gold uppercase tracking-widest text-[10px] font-bold mb-6" data-key="cris-role">Professor & Project Manager</p>
                         <div class="text-gray-600 text-sm leading-relaxed">
-                            <p class="mb-4">Cristiana Dragos is a faculty member of the Cap sur la Musique Academy in Belgium. She holds both a Bachelor’s and a Master’s degree in Piano Performance from the Royal Conservatory of Brussels, where she studied under the guidance of Professor Boyan Vodenitcharov. She also furthered her musical studies at the ‘Talent Music Master Courses’ University in Brescia, maintaining a long–standing collaboration with Prof. Philippe Raskin.</p>
-                            
-                            <div id="dragos-extra" class="read-more-content space-y-4">
-                                <p>As a soloist, Cristiana has performed with several orchestras internationally, including in Miami, Belgium, Romania, Greece, Poland, and Croatia. She is a prizewinner of over 80 international competitions throughout important musical centers such as Paris, Rome, Vienna, and Milan. Her notable distinctions include first prizes at the ‘Maria Herrero’ International Piano Competition in Granada, the ‘César Franck’ International Piano Competition in Brussels, and the ‘Andrée Charlier’ Piano Competition. She was also awarded the Grand Prix at the Irina Satchi International Piano Competition and was named an ambassador for Cluj-Napoca, Romania.</p>
-                                <p>Cristiana is currently undertaking postgraduate studies in Natalia Trull’s class at the Accademia del Ridotto in Italy. Throughout her career, she has participated in numerous masterclasses with some of the most world-renowned pianists and pedagogues, including Dmitri Bashkirov, Arie Vardi, Leonel Morales, and Olga Kern.</p>
+                            <p class="mb-4" data-key="cris-bio-1">Cristiana Dragos is a faculty member of the Cap sur la Musique Academy in Belgium...</p>
+                            <div id="dragos-extra" class="read-more-content space-y-4" data-key="cris-bio-2">
+                                <!-- Populated by JS -->
                             </div>
-                            
                             <button onclick="toggleBio('dragos')" id="dragos-btn" class="mt-4 text-gold font-bold uppercase tracking-widest text-[10px] hover:text-navy transition-colors flex items-center md:flex-row-reverse">
-                                <span class="md:ml-2 ml-0 mr-2 md:mr-0 text-xs">↓</span> Read more
+                                <span class="md:ml-2 ml-0 mr-2 md:mr-0 text-xs">↓</span> <span data-key="btn-read-more">Read more</span>
                             </button>
                         </div>
                     </div>
@@ -303,89 +285,58 @@
         </div>
     </section>
 
-    <!-- Payment Logistics (Secure Your Participation) -->
+    <!-- Payment Logistics -->
     <section class="py-24 px-8 md:px-24 bg-gray-50 border-t border-gray-100">
         <div class="max-w-6xl mx-auto grid lg:grid-cols-2 gap-16">
             <div>
-                <span class="text-gold font-bold uppercase tracking-[0.4em] text-[10px] mb-4 block">Registration & Payment</span>
-                <h2 class="text-4xl font-serif mb-8 italic">Secure Your Participation</h2>
-                <p class="text-gray-600 mb-6 leading-relaxed">
-                    Course and administration fees can be settled via bank transfer or in cash upon arrival by prior arrangement.
-                </p>
-                <p class="text-xs text-gray-400 italic mb-10 border-l-2 border-gold pl-4">
-                    Please note: Masterclass fees are non-refundable. Applying is legally binding.
-                </p>
-                
+                <span class="text-gold font-bold uppercase tracking-[0.4em] text-[10px] mb-4 block" data-key="pay-tag">Registration & Payment</span>
+                <h2 class="text-4xl font-serif mb-8 italic" data-key="pay-title">Secure Your Participation</h2>
+                <p class="text-gray-600 mb-6 leading-relaxed" data-key="pay-desc">Course and administration fees can be settled via bank transfer or in cash upon arrival by prior arrangement.</p>
+                <p class="text-xs text-gray-400 italic mb-10 border-l-2 border-gold pl-4" data-key="pay-legal">Please note: Masterclass fees are non-refundable. Applying is legally binding.</p>
                 <div class="mb-10">
-                    <a href="https://forms.fillout.com/t/oCCJ1eQeVzus" target="_blank" class="gold-button inline-block px-12 py-4 text-[11px] font-bold uppercase">Apply Now</a>
+                    <a href="https://forms.fillout.com/t/oCCJ1eQeVzus" target="_blank" class="gold-button inline-block px-12 py-4 text-[11px] font-bold uppercase" data-key="pay-btn">Apply Now</a>
                 </div>
-
                 <div class="flex items-center space-x-4">
                     <div class="w-12 h-12 rounded-full border border-gold flex items-center justify-center text-gold">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z" />
-                        </svg>
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z" /></svg>
                     </div>
                     <div>
-                        <p class="text-xs uppercase tracking-widest font-bold text-navy">Payment Method</p>
-                        <p class="text-sm text-gray-500 font-serif">Bank Transfer or Cash on Arrival</p>
+                        <p class="text-xs uppercase tracking-widest font-bold text-navy" data-key="pay-method-tag">Payment Method</p>
+                        <p class="text-sm text-gray-500 font-serif" data-key="pay-method-val">Bank Transfer or Cash on Arrival</p>
                     </div>
                 </div>
             </div>
             
             <div class="bg-navy p-10 text-white rounded-sm shadow-2xl relative overflow-hidden">
-                <div class="absolute top-0 right-0 w-32 h-32 bg-gold/10 rounded-full translate-x-16 -translate-y-16"></div>
-                <h4 class="text-xl font-serif mb-8 text-gold italic">Bank Details</h4>
+                <h4 class="text-xl font-serif mb-8 text-gold italic" data-key="bank-title">Bank Details</h4>
                 <div class="space-y-6 text-sm">
-                    <div class="flex justify-between border-b border-white/10 pb-2">
-                        <span class="text-white/40 uppercase tracking-widest text-[10px]">Account Name</span>
-                        <span>Interpretation.eu</span>
-                    </div>
-                    <div class="flex justify-between border-b border-white/10 pb-2">
-                        <span class="text-white/40 uppercase tracking-widest text-[10px]">Bank</span>
-                        <span>ING Belgium</span>
-                    </div>
-                    <div class="flex justify-between border-b border-white/10 pb-2">
-                        <span class="text-white/40 uppercase tracking-widest text-[10px]">IBAN</span>
-                        <span class="font-mono">BE71 3630 7938 7769</span>
-                    </div>
-                    <div class="flex justify-between border-b border-white/10 pb-2">
-                        <span class="text-white/40 uppercase tracking-widest text-[10px]">BIC</span>
-                        <span class="font-mono">GEBABEBB</span>
-                    </div>
-                    <div class="pt-4">
-                        <p class="text-[10px] text-gold uppercase tracking-[0.2em] font-bold mb-2">Subject for transfer</p>
-                        <p class="text-xs text-white/60 italic">"Name of Participant + Masterclass Type"</p>
-                    </div>
+                    <div class="flex justify-between border-b border-white/10 pb-2"><span class="text-white/40 uppercase tracking-widest text-[10px]" data-key="bank-acc">Account Name</span><span>Interpretation.eu</span></div>
+                    <div class="flex justify-between border-b border-white/10 pb-2"><span class="text-white/40 uppercase tracking-widest text-[10px]" data-key="bank-name">Bank</span><span>ING Belgium</span></div>
+                    <div class="flex justify-between border-b border-white/10 pb-2"><span class="text-white/40 uppercase tracking-widest text-[10px]">IBAN</span><span class="font-mono">BE71 3630 7938 7769</span></div>
+                    <div class="flex justify-between border-b border-white/10 pb-2"><span class="text-white/40 uppercase tracking-widest text-[10px]">BIC</span><span class="font-mono">GEBABEBB</span></div>
+                    <div class="pt-4"><p class="text-[10px] text-gold uppercase tracking-[0.2em] font-bold mb-2" data-key="bank-sub">Subject for transfer</p><p class="text-xs text-white/60 italic" data-key="bank-sub-val">"Name of Participant + Masterclass Type"</p></div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Advanced Opportunities (Senior Program) -->
+    <!-- Advanced Opportunities -->
     <section class="py-24 bg-white">
         <div class="max-w-4xl mx-auto text-center px-8">
-            <span class="text-gold font-bold uppercase tracking-[0.4em] text-[10px] mb-4 block">Advanced Opportunities</span>
-            <h2 class="text-3xl md:text-5xl font-serif mb-8 italic text-navy">Explore the Senior Program</h2>
-            <p class="text-gray-500 mb-10 leading-relaxed font-light">
-                Discover the main César Franck Young Talents & Orchestra Festival, featuring full concerto performances with orchestra and advanced masterclasses.
-            </p>
-            <a href="https://www.cfipc.com/cfyto" class="inline-block px-12 py-4 border border-navy text-navy text-[10px] font-bold uppercase tracking-widest hover:bg-navy hover:text-white transition-all">
-                Visit CFYTO Senior
-            </a>
+            <span class="text-gold font-bold uppercase tracking-[0.4em] text-[10px] mb-4 block" data-key="adv-tag">Advanced Opportunities</span>
+            <h2 class="text-3xl md:text-5xl font-serif mb-8 italic text-navy" data-key="adv-title">Explore the Senior Program</h2>
+            <p class="text-gray-500 mb-10 leading-relaxed font-light" data-key="adv-desc">Discover the main César Franck Young Talents & Orchestra Festival, featuring full concerto performances with orchestra and advanced masterclasses.</p>
+            <a href="https://www.cfipc.com/cfyto" class="inline-block px-12 py-4 border border-navy text-navy text-[10px] font-bold uppercase tracking-widest hover:bg-navy hover:text-white transition-all" data-key="adv-btn">Visit CFYTO Senior</a>
         </div>
     </section>
 
-    <!-- Final CTA (Claim Your Stage) -->
+    <!-- Final CTA -->
     <section class="py-32 bg-navy text-white relative overflow-hidden">
-        <div class="absolute inset-0 opacity-10">
-            <!-- Animation removed here as well for consistency -->
-            <img src="first.png" class="w-full h-full object-cover">
-        </div>
+        <div class="absolute inset-0 opacity-10"><img src="first.png" class="w-full h-full object-cover"></div>
         <div class="max-w-4xl mx-auto text-center relative z-10 px-8">
-            <h2 class="text-5xl md:text-7xl font-serif mb-12">Claim Your <span class="italic text-gold">Stage</span></h2>
-            <p class="text-xl font-light text-white/70 mb-12 italic">Join us for 4 intensive lessons and a performance that will change your perspective on music.</p>
-            <a href="https://forms.fillout.com/t/oCCJ1eQeVzus" target="_blank" class="inline-block gold-button px-16 py-6 text-sm font-bold uppercase rounded-none">Apply for CFYTO Junior</a>
+            <h2 class="text-5xl md:text-7xl font-serif mb-12" data-key="cta-title">Claim Your <span class="italic text-gold">Stage</span></h2>
+            <p class="text-xl font-light text-white/70 mb-12 italic" data-key="cta-sub">Join us for 4 intensive lessons and a performance that will change your perspective on music.</p>
+            <a href="https://forms.fillout.com/t/oCCJ1eQeVzus" target="_blank" class="gold-button inline-block px-16 py-6 text-sm font-bold uppercase rounded-none" data-key="cta-btn">Apply for CFYTO Junior</a>
         </div>
     </section>
 
@@ -394,20 +345,10 @@
         <div class="max-w-6xl mx-auto grid md:grid-cols-4 gap-12">
             <div class="col-span-2">
                 <p class="text-sm font-serif font-bold tracking-tight text-navy mb-4">César Franck International Piano Competition</p>
-                <p class="text-gray-400 text-xs leading-relaxed max-w-sm italic">"Our mission is to inspire and support young pianists by giving them an international stage to grow and push their limits."</p>
+                <p class="text-gray-400 text-xs leading-relaxed max-w-sm italic" data-key="foot-mission">"Our mission is to inspire and support young pianists by giving them an international stage to grow and push their limits."</p>
             </div>
-            <div>
-                <h4 class="text-[10px] uppercase tracking-widest font-bold mb-6">Contact</h4>
-                <a href="mailto:office@cfipc.com" class="text-sm text-gray-500 hover:text-gold block mb-2">office@cfipc.com</a>
-                <p class="text-sm text-gray-500">Kraainem, Belgium</p>
-            </div>
-            <div>
-                <h4 class="text-[10px] uppercase tracking-widest font-bold mb-6">Follow</h4>
-                <div class="flex space-x-4">
-                    <a href="https://www.facebook.com/cfipc" class="text-gray-400 hover:text-gold transition-colors text-xs uppercase font-bold tracking-widest">FB</a>
-                    <a href="https://www.instagram.com/cfipc_competition" class="text-gray-400 hover:text-gold transition-colors text-xs uppercase font-bold tracking-widest">IG</a>
-                </div>
-            </div>
+            <div><h4 class="text-[10px] uppercase tracking-widest font-bold mb-6">Contact</h4><a href="mailto:office@cfipc.com" class="text-sm text-gray-500 hover:text-gold block mb-2">office@cfipc.com</a><p class="text-sm text-gray-500">Kraainem, Belgium</p></div>
+            <div><h4 class="text-[10px] uppercase tracking-widest font-bold mb-6">Follow</h4><div class="flex space-x-4"><a href="https://www.facebook.com/cfipc" class="text-gray-400 hover:text-gold text-xs font-bold tracking-widest">FB</a><a href="https://www.instagram.com/cfipc_competition" class="text-gray-400 hover:text-gold text-xs font-bold tracking-widest">IG</a></div></div>
         </div>
         <div class="max-w-6xl mx-auto mt-20 pt-10 border-t border-gray-50 text-center">
             <p class="text-gray-300 text-[9px] uppercase tracking-[0.4em]">© 2026 <a href="https://www.cfipc.com" class="hover:text-gold transition-colors">cfipc.com</a></p>
@@ -415,23 +356,211 @@
     </footer>
 
     <script>
-        function toggleBio(id) {
-            const extra = document.getElementById(id + '-extra');
-            const btn = document.getElementById(id + '-btn');
-            const isHidden = extra.classList.toggle('show');
+        const translations = {
+            en: {
+                "nav-title": "Young Talents & Orchestra",
+                "nav-philosophy": "Philosophy",
+                "nav-stage": "The Stage",
+                "nav-packages": "Packages",
+                "nav-apply": "Apply",
+                "hero-junior": "Junior",
+                "hero-sub": "Nurturing the musical soul of the next generation. A bridge between the practice room and the world's great stages.",
+                "hero-btn-apply": "Begin the Journey",
+                "hero-btn-faculty": "Meet the Professors",
+                "phil-tag": "A Dedicated Vision",
+                "phil-title": "The Art of Piano Playing <br>for <span class='italic text-gold'>Young Pupils</span>",
+                "phil-p1": "For a young pianist, the first steps into the professional world are the most critical. It is not just about learning notes; it is about discovering a voice.",
+                "phil-p2": "We believe that the time spent with a master should be a revelation. By focusing our energy into intensive, high-impact sessions, we honor the young student's natural curiosity and agility, ensuring every minute at the keyboard is a step toward artistic independence.",
+                "phil-h1": "A Personal Connection",
+                "phil-d1": "Every child is unique. Our 30-minute modules are intense but deeply human, allowing us to connect with the student's specific musical personality and build their confidence from the very first minute.",
+                "phil-h2": "The Path to the Stage",
+                "phil-d2": "We don't just teach pieces; we prepare performers. Through four iterative touchpoints, we refine not only the technique but the presence and focus required for a professional solo recital.",
+                "phil-quote": "\"Our mission is to inspire and support young pianists by giving them an international stage to grow and push their limits.\"",
+                "phil-quote-tag": "The César Franck International Piano Competition",
+                "stage-tag": "The Grand Culmination",
+                "stage-title": "Solo Concert in <br><span class='italic'>Antwerp</span>",
+                "stage-desc": "The true test of a musician is the stage. After your four intensive masterclasses, you will take what you have learned and bring it to life in front of an audience.",
+                "stage-date": "Thursday, March 5th, 2026",
+                "stage-perf": "A Solo Performance in Antwerp",
+                "stage-limit": "Junior participants from the Solo Project will perform a maximum of 5 minutes, showcasing their refined technique and artistic growth in a professional concert setting.",
+                "pack-title": "Program Packages",
+                "pack-s-title": "Solo Project",
+                "pack-o-title": "Orchestra Project",
+                "pack-p-title": "Passive Participant",
+                "pack-admin": "+ Admin Fee",
+                "pack-booked": "FULLY BOOKED",
+                "pack-btn-solo": "Select Solo",
+                "pack-btn-booked": "Fully Booked",
+                "pack-btn-pass": "Select Passive",
+                "pack-note": "* A mandatory <strong>CFIPC Administration fee of €50</strong> applies to all registrations.",
+                "pack-solo-list": ["4 lessons of 30 minutes", "Solo Concert (Mar 5th, Antwerp)", "Daily Practice Time", "Free admission to all concerts", "Full access to all masterclasses"],
+                "pack-orch-list": ["Enhanced curriculum", "Orchestra collaboration opportunities", "Priority Daily Practice Time", "Professional Networking"],
+                "pack-pass-list": ["Audit all Junior & Senior lessons", "Free admission to all concerts", "Behind-the-scenes access"],
+                "mentors-tag": "Your Mentors",
+                "mentors-title": "Masters of <br><span class='italic text-gold'>Pedagogy</span>",
+                "mentors-desc": "Philippe Raskin and Cristiana Dragos bring a shared vision to the Junior program: that excellence is achievable at any age when guided with patience, passion, and precision.",
+                "phil-role": "Artistic Director & Professor",
+                "phil-bio-1": "Born in Brussels, Philippe Raskin is an eclectic pianist whose career spans solo performance, chamber music, and elite pedagogy. He received a diverse musical education at the Royal Conservatory of Brussels and the Queen Elisabeth Music Chapel, further refining his artistry at Madrid’s Escuela Superior de Música Reina Sofía under Dimitri Bashkirov. His performances have been described by La Libre Belgique as a \"model of radiant authority,\" noted for being both generous and meticulously controlled.",
+                "phil-bio-2": "<p>A laureate of the \"Spanish Composers\" and J.S. Bach competitions, Philippe has performed in world-renowned venues including the Vienna Musikverein, the Berlin Philharmonie, and the Grand Hall of the Tchaikovsky Conservatory. He frequently collaborates with the Belgian National Orchestra and maintains a vibrant chamber music presence alongside artists such as Clemens Hagen. Dedicated to new music, several composers have dedicated works to him, including Jean-Marie Rens and Serkan Gürkan.</p><p>Beyond the stage, Philippe is a distinguished educator and artistic leader. He serves as the Artistic Director of the César Franck International Piano Competition and is a frequent jury member for major international competitions. He currently holds professorships at the Friedrich Gulda Conservatory in Vienna, the Royal Superior Institute of Music and Pedagogy in Namur, and the Talent Music Master Courses in Brescia.</p>",
+                "cris-role": "Professor & Project Manager",
+                "cris-bio-1": "Cristiana Dragos is a faculty member of the Cap sur la Musique Academy in Belgium. She holds both a Bachelor’s and a Master’s degree in Piano Performance from the Royal Conservatory of Brussels, where she studied under the guidance of Professor Boyan Vodenitcharov. She also furthered her musical studies at the ‘Talent Music Master Courses’ University in Brescia, maintaining a long–standing collaboration with Prof. Philippe Raskin.",
+                "cris-bio-2": "<p>As a soloist, Cristiana has performed with several orchestras internationally, including in Miami, Belgium, Romania, Greece, Poland, and Croatia. She is a prizewinner of over 80 international competitions throughout important musical centers such as Paris, Rome, Vienna, and Milan. Her notable distinctions include first prizes at the ‘Maria Herrero’ International Piano Competition in Granada, the ‘César Franck’ International Piano Competition in Brussels, and the ‘Andrée Charlier’ Piano Competition. She was also awarded the Grand Prix at the Irina Satchi International Piano Competition and was named an ambassador for Cluj-Napoca, Romania.</p><p>Cristiana is currently undertaking postgraduate studies in Natalia Trull’s class at the Accademia del Ridotto in Italy. Throughout her career, she has participated in numerous masterclasses with some of the most world-renowned pianists and pedagogues, including Dmitri Bashkirov, Arie Vardi, Leonel Morales, and Olga Kern.</p>",
+                "btn-read-more": "Read more",
+                "btn-read-less": "Read less",
+                "pay-tag": "Registration & Payment",
+                "pay-title": "Secure Your Participation",
+                "pay-desc": "Course and administration fees can be settled via bank transfer or in cash upon arrival by prior arrangement.",
+                "pay-legal": "Please note: Masterclass fees are non-refundable. Applying is legally binding.",
+                "pay-btn": "Apply Now",
+                "pay-method-tag": "Payment Method",
+                "pay-method-val": "Bank Transfer or Cash on Arrival",
+                "bank-title": "Bank Details",
+                "bank-acc": "Account Name",
+                "bank-name": "Bank",
+                "bank-sub": "Subject for transfer",
+                "bank-sub-val": "\"Name of Participant + Masterclass Type\"",
+                "adv-tag": "Advanced Opportunities",
+                "adv-title": "Explore the Senior Program",
+                "adv-desc": "Discover the main César Franck Young Talents & Orchestra Festival, featuring full concerto performances with orchestra and advanced masterclasses.",
+                "adv-btn": "Visit CFYTO Senior",
+                "cta-title": "Claim Your <span class='italic text-gold'>Stage</span>",
+                "cta-sub": "Join us for 4 intensive lessons and a performance that will change your perspective on music.",
+                "cta-btn": "Apply for CFYTO Junior",
+                "foot-mission": "\"Our mission is to inspire and support young pianists by giving them an international stage to grow and push their limits.\""
+            },
+            fr: {
+                "nav-title": "Jeunes Talents & Orchestre",
+                "nav-philosophy": "Philosophie",
+                "nav-stage": "La Scène",
+                "nav-packages": "Forfaits",
+                "nav-apply": "S'inscrire",
+                "hero-junior": "Junior",
+                "hero-sub": "Cultiver l'âme musicale de la prochaine génération. Un pont entre la salle de répétition et les plus grandes scènes du monde.",
+                "hero-btn-apply": "Commencer l'Aventure",
+                "hero-btn-faculty": "Rencontrer les Professeurs",
+                "phil-tag": "Une Vision Dédiée",
+                "phil-title": "L'Art de Jouer du Piano <br>pour les <span class='italic text-gold'>Jeunes Élèves</span>",
+                "phil-p1": "Pour un jeune pianiste, les premiers pas dans le monde professionnel sont les plus critiques. Il ne s'agit pas seulement d'apprendre des notes ; il s'agit de découvrir une voix.",
+                "phil-p2": "Nous pensons que le temps passé avec un maître doit être une révélation. En concentrant notre énergie sur des sessions intensives à fort impact, nous honorons la curiosité et l'agilité naturelles du jeune étudiant, garantissant que chaque minute au clavier soit un pas vers l'indépendance artistique.",
+                "phil-h1": "Une Connexion Personnelle",
+                "phil-d1": "Chaque enfant est unique. Nos modules de 30 minutes sont intenses mais profondément humains, nous permettant de nous connecter à la personnalité musicale spécifique de l'élève et de renforcer sa confiance dès la première minute.",
+                "phil-h2": "Le Chemin vers la Scène",
+                "phil-d2": "Nous n'enseignons pas seulement des morceaux ; nous préparons des interprètes. Grâce à quatre points de contact itératifs, nous affinons non seulement la technique mais aussi la présence et la concentration requises pour un récital solo professionnel.",
+                "phil-quote": "\"Notre mission est d'inspirer et de soutenir les jeunes pianistes en leur offrant une scène internationale pour grandir et repousser leurs limites.\"",
+                "phil-quote-tag": "Le Concours International de Piano César Franck",
+                "stage-tag": "Le Couronnement",
+                "stage-title": "Concert Solo à <br><span class='italic'>Anvers</span>",
+                "stage-desc": "Le véritable test d'un musicien est la scène. Après vos quatre masterclasses intensives, vous mettrez en pratique ce que vous avez appris devant un public.",
+                "stage-date": "Jeudi 5 Mars 2026",
+                "stage-perf": "Une Performance Solo à Anvers",
+                "stage-limit": "Les participants Junior du Projet Solo se produiront pendant 5 minutes maximum, mettant en valeur leur technique affinée et leur croissance artistique dans un cadre de concert professionnel.",
+                "pack-title": "Forfaits du Programme",
+                "pack-s-title": "Projet Solo",
+                "pack-o-title": "Projet Orchestre",
+                "pack-p-title": "Participant Passif",
+                "pack-admin": "+ Frais d'Admin",
+                "pack-booked": "COMPLET",
+                "pack-btn-solo": "Choisir Solo",
+                "pack-btn-booked": "Complet",
+                "pack-btn-pass": "Choisir Passif",
+                "pack-note": "* Des <strong>frais d'administration CFIPC obligatoires de 50 €</strong> s'appliquent à toutes les inscriptions.",
+                "pack-solo-list": ["4 leçons de 30 minutes", "Concert Solo (5 mars, Anvers)", "Temps de pratique quotidien", "Entrée gratuite à tous les concerts", "Accès complet à toutes les masterclasses"],
+                "pack-orch-list": ["Curriculum enrichi", "Opportunités de collaboration avec orchestre", "Pratique quotidienne prioritaire", "Réseautage professionnel"],
+                "pack-pass-list": ["Audition de toutes les leçons Junior & Senior", "Entrée gratuite à tous les concerts", "Accès aux coulisses"],
+                "mentors-tag": "Vos Mentors",
+                "mentors-title": "Maîtres de la <br><span class='italic text-gold'>Pédagogie</span>",
+                "mentors-desc": "Philippe Raskin et Cristiana Dragos apportent une vision commune au programme Junior : l'excellence est accessible à tout âge lorsqu'elle est guidée avec patience, passion et précision.",
+                "phil-role": "Directeur Artistique & Professeur",
+                "phil-bio-1": "Né à Bruxelles, Philippe Raskin est un pianiste éclectique dont la carrière embrasse la performance soliste, la musique de chambre et une pédagogie d'élite. Il a reçu une éducation musicale diversifiée au Conservatoire Royal de Bruxelles et à la Chapelle Musicale Reine Elisabeth, affinant son art à l'Escuela Superior de Música Reina Sofía de Madrid sous Dimitri Bashkirov. Ses performances ont été décrites par La Libre Belgique comme un \"modèle d'autorité rayonnante\", notées pour leur générosité et leur contrôle méticuleux.",
+                "phil-bio-2": "<p>Lauréat des concours \"Spanish Composers\" et J.S. Bach, Philippe s'est produit dans des salles de renommée mondiale, notamment le Musikverein de Vienne, la Philharmonie de Berlin et la Grande Salle du Conservatoire Tchaïkovski. Il collabore fréquemment avec l'Orchestre National de Belgique et maintient une présence dynamique en musique de chambre aux côtés d'artistes tels que Clemens Hagen. Dédié à la musique contemporaine, plusieurs compositeurs lui ont dédié des œuvres, dont Jean-Marie Rens et Serkan Gürkan.</p><p>Au-delà de la scène, Philippe est un pédagogue et leader artistique distingué. Il est le directeur artistique du Concours International de Piano César Franck et membre fréquent de jurys de grands concours internationaux. Il est actuellement professeur au Conservatoire Friedrich Gulda à Vienne, à l'Institut Supérieur Royal de Musique et de Pédagogie de Namur et à l'Université de Musique Talent Music Master Courses à Brescia.</p>",
+                "cris-role": "Professeur & Project Manager",
+                "cris-bio-1": "Cristiana Dragos est membre de la faculté de l'Académie Cap sur la Musique en Belgique. Elle détient un baccalauréat et une maîtrise en interprétation pianistique du Conservatoire Royal de Bruxelles, où elle a étudié sous la direction du professeur Boyan Vodenitcharov. Elle a également approfondi ses études musicales à l'université « Talent Music Master Courses » à Brescia, entretenant une collaboration de longue date avec le professeur Philippe Raskin.",
+                "cris-bio-2": "<p>En tant que soliste, Cristiana s'est produite avec plusieurs orchestres à l'échelle internationale, notamment à Miami, en Belgique, en Roumanie, en Grèce, en Pologne et en Croatie. Elle est lauréate de plus de 80 concours internationaux dans d'importants centres musicaux tels que Paris, Rome, Vienne et Milan. Ses distinctions notables incluent les premiers prix au Concours International de Piano « Maria Herrero » à Grenade, au Concours International de Piano « César Franck » à Bruxelles et au Concours de Piano « Andrée Charlier ». Elle a également reçu le Grand Prix au Concours International de Piano Irina Satchi et a été nommée ambassadrice de Cluj-Napoca, en Roumanie.</p><p>Cristiana poursuit actuellement des études de troisième cycle dans la classe de Natalia Trull à l'Accademia del Ridotto en Italie. Tout au long de sa carrière, elle a participé à de nombreuses masterclasses avec certains des pianistes et pédagogues les plus renommés au monde, notamment Dmitri Bashkirov, Arie Vardi, Leonel Morales et Olga Kern.</p>",
+                "btn-read-more": "Lire la suite",
+                "btn-read-less": "Réduire",
+                "pay-tag": "Inscription & Paiement",
+                "pay-title": "Sécurisez Votre Participation",
+                "pay-desc": "Les frais de cours et d'administration peuvent être réglés par virement bancaire ou en espèces à l'arrivée sur arrangement préalable.",
+                "pay-legal": "Veuillez noter : les frais de masterclass ne sont pas remboursables. L'inscription est juridiquement contraignante.",
+                "pay-btn": "S'inscrire Maintenant",
+                "pay-method-tag": "Méthode de Paiement",
+                "pay-method-val": "Virement Bancaire ou Espèces à l'Arrivée",
+                "bank-title": "Détails Bancaires",
+                "bank-acc": "Nom du Compte",
+                "bank-name": "Banque",
+                "bank-sub": "Objet du virement",
+                "bank-sub-val": "\"Nom du Participant + Type de Masterclass\"",
+                "adv-tag": "Opportunités Avancées",
+                "adv-title": "Explorer le Programme Senior",
+                "adv-desc": "Découvrez le festival principal César Franck Young Talents & Orchestra, avec des performances de concertos complets avec orchestre et des masterclasses avancées.",
+                "adv-btn": "Visiter CFYTO Senior",
+                "cta-title": "Prenez Votre Place sur <span class='italic text-gold'>Scène</span>",
+                "cta-sub": "Rejoignez-nous pour 4 leçons intensives et une performance qui changera votre perspective sur la musique.",
+                "cta-btn": "S'inscrire au CFYTO Junior",
+                "foot-mission": "\"Notre mission est d'inspirer et de soutenir les jeunes pianistes en leur offrant une scène internationale pour grandir et repousser leurs limites.\""
+            }
+        };
+
+        let currentLang = 'en';
+
+        function setLang(lang) {
+            currentLang = lang;
+            document.querySelectorAll('[data-key]').forEach(el => {
+                const key = el.getAttribute('data-key');
+                if (translations[lang][key]) {
+                    if (el.tagName === 'INPUT' || el.tagName === 'TEXTAREA') {
+                        el.placeholder = translations[lang][key];
+                    } else {
+                        el.innerHTML = translations[lang][key];
+                    }
+                }
+            });
+
+            // Update lists
+            updateList('pack-solo-list', translations[lang]['pack-solo-list']);
+            updateList('pack-orch-list', translations[lang]['pack-orch-list']);
+            updateList('pack-pass-list', translations[lang]['pack-pass-list']);
+
+            // Update buttons state
+            document.querySelectorAll('.lang-btn').forEach(b => b.classList.remove('active'));
+            document.getElementById('btn-' + lang).classList.add('active');
             
-            if (isHidden) {
-                btn.innerHTML = `Read less <span class="ml-2 text-xs">↑</span>`;
-                if(id === 'dragos') {
-                    btn.innerHTML = `<span class="mr-2 text-xs">↑</span> Read less`;
-                }
+            // Refresh toggle button text
+            const raskinBtn = document.getElementById('raskin-btn');
+            const dragosBtn = document.getElementById('dragos-btn');
+            const isRaskinShown = document.getElementById('raskin-extra').classList.contains('show');
+            const isDragosShown = document.getElementById('dragos-extra').classList.contains('show');
+            
+            updateToggleBtnText('raskin', isRaskinShown);
+            updateToggleBtnText('dragos', isDragosShown);
+        }
+
+        function updateList(id, items) {
+            const list = document.getElementById(id);
+            list.innerHTML = items.map(item => `<li class="flex items-center"><span class="text-gold mr-2">✦</span> ${item}</li>`).join('');
+        }
+
+        function updateToggleBtnText(id, isShown) {
+            const btn = document.getElementById(id + '-btn');
+            const textKey = isShown ? 'btn-read-less' : 'btn-read-more';
+            const arrow = isShown ? '↑' : '↓';
+            const text = translations[currentLang][textKey];
+
+            if (id === 'dragos') {
+                btn.innerHTML = `<span class="md:ml-2 ml-0 mr-2 md:mr-0 text-xs">${arrow}</span> <span>${text}</span>`;
             } else {
-                btn.innerHTML = `Read more <span class="ml-2 text-xs">↓</span>`;
-                if(id === 'dragos') {
-                    btn.innerHTML = `<span class="mr-2 text-xs">↓</span> Read more`;
-                }
+                btn.innerHTML = `<span>${text}</span> <span class="ml-2 text-xs">${arrow}</span>`;
             }
         }
+
+        function toggleBio(id) {
+            const extra = document.getElementById(id + '-extra');
+            const isShown = extra.classList.toggle('show');
+            updateToggleBtnText(id, isShown);
+        }
+
+        // Initialize
+        window.onload = () => setLang('en');
     </script>
 </body>
 </html>
